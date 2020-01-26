@@ -144,8 +144,8 @@
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
+                  <button type="submit" class="btn btn-black">Enviar</button>
+                  <button type="submit" class="btn btn-secondary">Registrarse</button>
                </form>
             </div>
          </div>
