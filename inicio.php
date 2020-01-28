@@ -21,18 +21,12 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="inicio.php">Inicio</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Colecciones<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="inicio.php">Page 1-1</a></li>
-                            <li><a href="#">Page 1-2</a></li>
-                            <li><a href="#">Page 1-3</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Ediciones</a></li>
+                    <li><a href="colecciones.php">Colecciones</a></li>
+                    <li><a href="ediciones.php">Ediciones</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
-                    <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
                 </ul>
             </div>
         </nav>

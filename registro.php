@@ -35,7 +35,7 @@
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+    .sidenav {padding-top: 10px;}
 }
 
 @media screen and (max-width: 450px) {
@@ -67,7 +67,7 @@
     }
 
     .register-form{
-        margin-top: 20%;
+        margin-top: 10%;
     }
 }
 
@@ -132,21 +132,38 @@
          </div>
       </div>
       <div class="main">
-         <div class="col-md-6 col-sm-12">
+         <div class="col-md-4 col-sm-15">
             <div class="login-form">
                              <img src="imagenes/post_7_6485.jpg" height="27%" right="10%">
                <form>
                   <div class="form-group">
-                     <label>User Name</label>
+                     <label>Usuario</label>
                      <input type="text" class="form-control" placeholder="User Name">
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
+                     <label>Correo</label>
+                     <input type="text" class="form-control" placeholder="Password">
+                  </div>
+                   <div class="form-group">
+                     <label>Dirección</label>
+                     <input type="text" class="form-control" placeholder="Password">
+                  </div>
+                   <div class="form-group">
+                     <label>Codigo postal</label>
+                     <input type="text" class="form-control" placeholder="Password">
+                  </div>
+                   <div class="form-group">
+                     <label>Telefono</label>
+                     <input type="text" class="form-control" placeholder="Password">
+                  </div>
+                   <div class="form-group">
+                     <label>Contraseña</label>
                      <input type="password" class="form-control" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-black">Enviar</button>
                   <button type="submit" class="btn btn-secondary">Registrarse</button>
+                  <button type="submit" class="btn btn-secondary">Web</button>
                </form>
             </div>
          </div>
       </div>
+
