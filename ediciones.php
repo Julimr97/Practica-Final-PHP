@@ -11,7 +11,22 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+        <style type="text/css">
+            .boton_personalizado{
+                text-decoration: none;
+                padding: 2px;
+                font-weight: 600;
+                font-size: 20px;
+                color: #006039;
+                background-color: #ffffff;
+                border-radius: 6px;
+                border: 2px solid #006039;
+            }
+            .boton_personalizado:hover{
+                color: #ffffff;
+                background-color: #006039;
+            }
+        </style>
     </head>
     <body>
 
