@@ -1,3 +1,4 @@
+<title>ROLEX</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -95,6 +96,13 @@
     </style>
 </head>
 
+<body>
+    
+
+<?php
+    error_reporting(E_ERROR);
+    ?>
+
 <div class="sidenav">
          <div class="login-main-text">
              
@@ -135,18 +143,21 @@
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
                              <img src="imagenes/post_7_6485.jpg" height="27%" right="10%">
-               <form>
-                  <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name">
+                             
+               <form action="conexionLogin.php" method="post">
+                   <div class="form-group" id="login-form" >
+                     <label  for="username" class="text-info" >User Name</label>
+                     <input type="text" name="username" id="username" class="form-control">
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
+                     <label for="password" class="text-info">Password</label>
+                     <input type="password" name="password" id="password" class="form-control">
                   </div>
-                  <button type="submit" class="btn btn-black">Enviar</button>
-                  <button type="submit" class="btn btn-secondary">Registrarse</button>
+                   <input type="submit" class="btn btn-black" value="Enviar">
+                   <a href="registro.php" class="btn btn-black" value="Registrarse">Registrarse</a>
                </form>
+                             
             </div>
          </div>
       </div>
+</body>

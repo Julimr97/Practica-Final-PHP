@@ -31,6 +31,30 @@
     </head>
     <body>
 
+        <?php
+        session_start();
+        error_reporting(E_ERROR);
+        
+        if(isset($_GET['producto1'])) {
+            $_SESSION['producto1']=producto1;
+            
+        }
+        if(isset($_GET['producto2'])) {
+            $_SESSION['producto2']=producto2;
+        }
+        if(isset($_GET['producto3'])) {
+            $_SESSION['producto3']=producto3;
+        }
+        if(isset($_GET['precio1'])) {
+            $_SESSION['precio1']=precio1;
+        }
+        if(isset($_GET['precio2'])) {
+            $_SESSION['precio2']=precio2;
+        }
+        if(isset($_GET['precio3']))
+        
+        ?>
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid" style="background-color:#006039;">
                 <div class="navbar-header" >
@@ -38,69 +62,82 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li ><a href="inicio.php">Inicio</a></li>
-                    <li class="active"><a href="colecciones.php">Colecciones</a></li>
+                    <li ><a href="colecciones.php">Colecciones</a></li>
                     <li><a href="Accesorios.php">Accesorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
                     <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
-                    <li><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li class="active"><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+
                 </ul>
             </div>
         </nav>
 
         <div class="container">
-            <table border CELLPADDING=10 style="margin: 0 auto; text-align:center;">
+            
+            <table border CELLPADDING=10 style="margin: auto; text-align:center;">
                 <tr>
-                    <td><img src="imagenes/reloj1.webp" width="300"></td>
-                    <td><img src="imagenes/reloj2.webp" width="300"></td>
-                    <td><img src="imagenes/reloj3.webp" width="300"></td>
+                    <td width="300">Articulo</td>
+                    <td width="300">Precio</td>
+                    <td width="300">Cantidad</td>
                 </tr>
-                <tr>
-                    <td>7.500 €</td>
-                    <td>12.500 €</td>
-                    <td>9.250 €</td>
-                </tr>
-                <tr>
-                     <td><a href="carro.php?producto1=reloj1&precio1=7.500€">Añadido al carrito</a></td>
-                     <td><a href="carro.php?producto2=reloj3&precio2=12.500€">Añadido al carrito</a></td>
-                     <td><a href="carro.php?producto3=reloj2&precio3=9.250€">Añadido al carrito</a></td>
-                </tr>
+                
+                <?php
+                if(isset($_SESSION['producto1'])) {
+                        echo '
+                    <tr>
+                        <td><img src = "imagenes/reloj1.webp" width = "300"></td>
+                        <td>7.500 €</td>
+                        <td>1</td>
+                    </tr>';
+                        
+                    }
+                ?>
+                
+                <?php
+                if(isset($_SESSION['producto2'])) {
+                        echo '
+                    <tr>
+                        <td><img src = "imagenes/reloj2.webp" width = "300"></td>
+                        <td>12.500 €</td>
+                        <td>1</td>
+                    </tr>';
+                        
+                    }
+                ?>
+                
+                <?php
+                if(isset($_SESSION['producto3'])) {
+                        echo '
+                    <tr>
+                        <td><img src = "imagenes/reloj3.webp" width = "300"></td>
+                        <td>9.500 €</td>
+                        <td>1</td>
+                    </tr>';
+                        
+                    }
+                ?>
+                
             </table>
-
-            <table border CELLPADDING=10 style="margin: 0 auto; text-align:center; margin-top: 10%">
+            
+            <table  CELLPADDING=10 style="margin: auto; text-align:center; margin-top: 10%;">
                 <tr>
-                    <td><img src="imagenes/reloj5.jpg" width="300"></td>
-                    <td><img src="imagenes/reloj4.webp" width="300"></td>
-                    <td><img src="imagenes/reloj6.jpg" width="300"></td>
+                    <td width="300">Precio</td>
                 </tr>
+                
+                <?php
+                if(isset($_SESSION['precio1'])) {
+                        echo '
+                    <tr>
+                        <td>7.500 €</td>
+                    </tr>';
+                        
+                    }
+                ?>
+                
                 <tr>
-                    <td>37.500 €</td>
-                    <td>42.500 €</td>
-                    <td>96.250 €</td>
-                </tr>
-               <tr>
-                   <td><a href="carro.php">Añadido al carrito</a></td>
-                      <td><a href="carro.php">Añadido al carrito</td>
-                    <td><a href="carro.php">Añadido al carrito</td>
-                </tr>
-            </table>
-
-            <table border CELLPADDING=10 style="margin: 0 auto; text-align:center; margin-top: 10%">
-                <tr>
-                    <td><img src="imagenes/reloj7.jpg" width="300"></td>
-                    <td><img src="imagenes/reloj8.jpg" width="300"></td>
-                    <td><img src="imagenes/reloj9.jpg" width="300"></td>
-                </tr>
-                <tr>
-                    <td>17.500 €</td>
-                    <td>22.500 €</td>
-                    <td>9.250 €</td>
-                </tr>
-                <tr>
-                     <td><a href="carro.php">Añadido al carrito</td>
-                      <td><a href="carro.php">Añadido al carrito</td>
-                    <td><a href="carro.php">Añadido al carrito</td>
+                    <td><button class="boton_personalizado">COMPRAR</button></td>
                 </tr>
             </table>
         </div>
@@ -223,5 +260,7 @@
         <!-- Footer -->
     </body>
 </html>
+
+
 
 
