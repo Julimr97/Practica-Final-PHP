@@ -28,6 +28,13 @@
             }
         </style>
         
+        <?php
+error_reporting(E_ERROR);
+session_name('Rolex');
+    session_start();
+?>
+        <?php $usuario = $_GET['usuario']; ?>
+        
         
     </head>
     <body>
@@ -43,7 +50,7 @@
                     <li class="active"><a href="Accesorios.php">Accesorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
+                    <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];} else{ echo"Iniciar Sesion";} ?></a></li>
                     <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
                     <li><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
                 </ul>

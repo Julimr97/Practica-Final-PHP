@@ -1,3 +1,6 @@
+
+
+
 <title>ROLEX</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -10,6 +13,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <!------ Include the above in your HEAD tag ---------->
 <head>
+
+
     <style>
         body {
             font-family: "Lato", sans-serif;
@@ -170,4 +175,3 @@ error_reporting(E_ERROR);
         </div>
     </div>
 </div>
-

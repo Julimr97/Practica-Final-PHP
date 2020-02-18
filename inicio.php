@@ -11,13 +11,106 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <style type="text/css">
+            #overbox3 {
+                    position: fixed;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    z-index: 999999;
+                    display: block;
+            }
+            #infobox3 {
+                    margin: auto;
+                    position: relative;
+                    top: 0px;
+                    height: 58px;
+                    width: 100%;
+                    text-align:center;
+                    background-color: #eeeeee;
+            }
+            #infobox3 p {
+                    line-height:58px;
+                    font-size:12px;
+                    text-align:center;
+            }
+            #infobox3 p a {
+                    margin-right:5px;
+                    text-decoration: underline;
+            }
+        </style>
     </head>
     <body>
-<?php
-error_reporting(E_ERROR);
-?>
-        <?php $usuario = $_GET['usuario']; ?>
+
+        <?php
+        error_reporting(E_ERROR);
+        session_name('Rolex');
+        session_start();
+        ?>
+
+        <?php
+        if (isset($_COOKIE['visitas'])) {
+
+            setcookie('visitas', $_COOKIE['visitas'] + 1, time() + 3600 * 24);
+            $mensaje = 'Numero de visitas: ' . $_COOKIE['visitas'];
+        } else {
+
+            setcookie('visitas', 1, time() + 3600 * 24);
+            $mensaje = 'Bienvenido por primera vez a nuesta web';
+        }
+        ?>  
+        <?php
+        $usuario = $_GET['usuario'];
+        if (isset($_GET['usuario'])) {
+            $_SESSION['usuario'] = $usuario;
+        }
+        ?>
         
+        <script>
+        
+        function GetCookie(name) {
+    var arg=name+"=";
+    var alen=arg.length;
+    var clen=document.cookie.length;
+    var i=0;
+ 
+    while (i<clen) {
+        var j=i+alen;
+ 
+        if (document.cookie.substring(i,j)==arg)
+            return "1";
+        i=document.cookie.indexOf(" ",i)+1;
+        if (i==0)
+            break;
+    }
+ 
+    return null;
+}
+ 
+function aceptar_cookies(){
+    var expire=new Date();
+    expire=new Date(expire.getTime()+7776000000);
+    document.cookie="cookies_surestao=aceptada; expires="+expire;
+ 
+    var visit=GetCookie("cookies_surestao");
+ 
+    if (visit==1){
+        popbox3();
+    }
+}
+ 
+$(function() {
+    var visit=GetCookie("cookies_surestao");
+    if (visit==1){ popbox3(); }
+});
+ 
+function popbox3() {
+    $('#overbox3').toggle();
+}
+        </script>
+
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid" style="background-color:#006039;">
                 <div class="navbar-header" >
@@ -29,7 +122,11 @@ error_reporting(E_ERROR);
                     <li><a href="Accesorios.php">Accesorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php if(isset($usuario)){ echo $usuario;} else{ echo"Iniciar Sesion";} ?></a></li>
+                    <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php if (isset($_SESSION['usuario'])) {
+            echo $_SESSION['usuario'];
+        } else {
+            echo"Iniciar Sesion";
+        } ?></a></li>
                     <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
                     <li><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
                 </ul>
@@ -180,7 +277,7 @@ error_reporting(E_ERROR);
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    
+
                     <!-- Grid column -->
 
                     <!-- Grid column -->
@@ -196,7 +293,8 @@ error_reporting(E_ERROR);
                         <p>
                             <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
                         <p>
-                            <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                            <?php echo $mensaje; ?>
+                        </p>    
 
                     </div>
                     <!-- Grid column -->
@@ -207,7 +305,18 @@ error_reporting(E_ERROR);
             </div>
 
         </footer>
-        <!-- Footer -->
+        <div id="overbox3">
+            <div id="infobox3">
+                <p>Esta web utiliza cookies para obtener datos estadísticos de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
+                    <a href="politica-privacidad.php">Más información</a>
+                    <a onclick="aceptar_cookies();" style="cursor:pointer;">X Cerrar</a></p>
+            </div>
+        </div>
+
+
+
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="js/cookies.js" type="text/javascript"></script>
     </body>
 </html>
 

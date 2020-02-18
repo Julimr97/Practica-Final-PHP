@@ -30,7 +30,13 @@
         </style>
     </head>
     <body>
-
+        
+ <?php
+error_reporting(E_ERROR);
+session_name('Rolex');
+?>
+        <?php $usuario = $_GET['usuario']; ?>
+        
         <?php
         session_start();
         error_reporting(E_ERROR);
@@ -45,13 +51,7 @@
         if(isset($_GET['producto3'])) {
             $_SESSION['producto3']=producto3;
         }
-        if(isset($_GET['precio1'])) {
-            $_SESSION['precio1']=precio1;
-        }
-        if(isset($_GET['precio2'])) {
-            $_SESSION['precio2']=precio2;
-        }
-        if(isset($_GET['precio3']))
+        $total =0;
         
         ?>
 
@@ -66,9 +66,17 @@
                     <li><a href="Accesorios.php">Accesorios</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
+                                        <li><a href="login.php"><span class="glyphicon glyphicon-user"></span> <?php if(isset($_SESSION['usuario'])){ echo $_SESSION['usuario'];} else{ echo"Iniciar Sesion";} ?></a></li>
                     <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrarse</a></li>
-                    <li class="active"><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+                    <li class="active"><a href="carro.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito<?php
+                if(isset($_SESSION['total'])) {
+                        echo $_SESSION['total'];
+                        
+                    }
+                    else{
+                        echo "0";
+                    }
+                ?></a></li>
 
                 </ul>
             </div>
@@ -85,6 +93,8 @@
                 
                 <?php
                 if(isset($_SESSION['producto1'])) {
+                    $total = $total+1;
+                    $precio1 = 7500;
                         echo '
                     <tr>
                         <td><img src = "imagenes/reloj1.webp" width = "300"></td>
@@ -92,11 +102,15 @@
                         <td>1</td>
                     </tr>';
                         
+                    }else{
+                        $precio1 = 0;
                     }
                 ?>
                 
                 <?php
                 if(isset($_SESSION['producto2'])) {
+                    $total = $total+1;
+                    $precio2 = 12500;
                         echo '
                     <tr>
                         <td><img src = "imagenes/reloj2.webp" width = "300"></td>
@@ -104,11 +118,15 @@
                         <td>1</td>
                     </tr>';
                         
+                    }else{
+                        $precio2 = 0;
                     }
                 ?>
                 
                 <?php
                 if(isset($_SESSION['producto3'])) {
+                    $total = $total+1;
+                    $precio3 = 9500;
                         echo '
                     <tr>
                         <td><img src = "imagenes/reloj3.webp" width = "300"></td>
@@ -116,26 +134,24 @@
                         <td>1</td>
                     </tr>';
                         
+                    }else{
+                        $precio3 = 0;
                     }
+                    
+                    $_SESSION['total']=$total;
                 ?>
                 
             </table>
             
-            <table  CELLPADDING=10 style="margin: auto; text-align:center; margin-top: 10%;">
+            <table  CELLPADDING=10 style="margin: auto; text-align:center; margin-top: 5%;">
                 <tr>
                     <td width="300">Precio</td>
                 </tr>
-                
-                <?php
-                if(isset($_SESSION['precio1'])) {
-                        echo '
-                    <tr>
-                        <td>7.500 €</td>
-                    </tr>';
+                <tr>
+                    <td><?php echo $precio1 + $precio2 + $precio3;?></td>
+                </tr>
                         
-                    }
-                ?>
-                
+
                 <tr>
                     <td><button class="boton_personalizado">COMPRAR</button></td>
                 </tr>
